@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/b5035ca9ea.js"></script>
+<title>new topic</title>
+</head>
+
+<body>
+    
+    {% extends "learning_logs/base.html" %}
+    
+    {% block content %}
+    <div class="content w3-amber w3-round-large">
+        <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+        
+        <p>Add a new topic:</p>
+        <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">add topic</button>
+        </form>
+    </div>
+
+    <style>
+        div {
+            text-align: left; margin: 0 auto 0 auto; width: 70%;
+        }
+
+        p {
+            margin-left: 1%;
+        }
+
+        ul {
+            margin-left: 1%;
+        }
+
+        .content {
+            padding: 0 1%;
+            font-family: Georgia;
+        }
+    </style>
+
+    {% endblock content %}
+ 
+    
+</body>
+
+</html>
