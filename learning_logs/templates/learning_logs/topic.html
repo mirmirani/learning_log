@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/b5035ca9ea.js"></script>
+<title>Home</title>
+</head>
+
+<body>
+    <div class='w3-sand' style="text-align: center; max-width: 500px; margin: 0 auto 0 auto; border-radius: 15px;">
+    <p>
+        <a href="{% url 'learning_logs:index' %}"">
+       learning Log
+        </a>
+        -
+        <a href="{% url 'learning_logs:topics' %}">Topics</a>
+     </p>
+    </div>
+
+  
+    {% block content %}
+    <div class="w3-round-large">
+        
+        <p>Topic: {{topic}}</p>
+
+        <P>Entries:</P>
+        <ul>
+            {% for entry in entries %}
+            <li>
+                <p>{{entry.date_added|date:'D d M Y'}} {{entry.date_added|time:'H:i'}}</p>
+                <p>{{entry.text|linebreaks}}</p>
+            </li>
+            {%empty%}
+            <li>
+                There are no entries for this topic yet.
+            </li>
+            {%endfor%}
+        </ul>
+
+    </div>
+    <style>
+        p {
+            margin-left: 2%;
+        }
+
+        div {
+            background-color: wheat;
+        }
+    </style>
+     {% endblock content %}
+
+   
+</body>
+
+</html>
