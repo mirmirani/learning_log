@@ -11,4 +11,16 @@ urlpatterns = [
     
     #  path('login/', login, {'template_name': 'users/login.html'}, name='login'),
 
+    # Logout page
+    path("logout/", views.logout_view, name='logout'),
+    # no logoutView only redirect so view method needed
+    
+    #no template as logout will return to homepage
+
+
+    # Registration
+    path("register/", views.register, name='register'),
+
+
 ]
+
