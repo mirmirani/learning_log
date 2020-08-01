@@ -15,7 +15,9 @@
     <div class="w3-amber w3-round-large">
         {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
-        {%endif%}
+        {% endif %}
+
+        <form method="post" action="{% url 'users:login' %}">
         {% csrf_token %}
         {{ form.as_p }}
 
