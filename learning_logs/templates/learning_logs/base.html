@@ -4,35 +4,41 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/b5035ca9ea.js"></script>
-<title>Home</title>
+<title> Travel Log</title>
 </head>
 
 <body>
-    <div class='w3-sand' style="text-align: center; max-width: 500px; margin: 0 auto 0 auto; border-radius: 15px;">
-    <p>
-        <a href="{% url 'learning_logs:index' %}"">
-       learning Log
+    
+    <div class="container" style="margin: 0 auto; max-width: 1000px;">
+
+    <div class=' w3-bar w3-sand'>
+
+        <a class=' w3-bar-item w3-button w3-mobile w3-pale-red' style="width:25%" href="{% url 'learning_logs:index' %}">
+       Learning Log
         </a>
-        -
-        <a href="{% url 'learning_logs:topics' %}">Topics</a>
+
+        <a class=' w3-bar-item w3-button w3-mobile w3-pale-red' style="width:25%" href="{% url 'learning_logs:topics' %}" >Topics</a>
         {% if user.is_authenticated %}
-            Hello, {{user.username}}.
-            <a href="{% url 'users:logout' %}">log out</a>
+            <a class=' w3-bar-item w3-button w3-mobile w3-pale-red' style="width:25%" href="{% url 'users:logout' %}">log out</a>
+            <a class="w3-bar-item w3-pale-yellow" style="width:25%"> Hello, {{user.username}}. </a>
         {% else %}
-            -
-            <a href="{% url 'users:register' %}">register</a>
-            -
-            <a href="{% url 'users:login' %}"> Log in</a>
+
+            <a class=' w3-bar-item w3-button w3-mobile w3-pale-red' style="width:25%" href="{% url 'users:register' %}">register</a>
+
+            <a class=' w3-bar-item w3-button w3-mobile w3-pale-red' style="width:25%" href="{% url 'users:login' %}"> Log in</a>
         {%endif%}
-
-     </p>
     </div>
-    <div style="text-align: left;">
-     
-    {% block content %}
-     {% endblock content %}
 
-    </div>
+     <div class="header">
+        {% block header %}
+        {% endblock header %}
+     </div>
+     <div>
+        {% block content %}
+        {% endblock content %}
+     </div>
+
+</div>
 </body>
 
 </html>
