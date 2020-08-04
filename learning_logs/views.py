@@ -17,6 +17,8 @@ def topics(request,):
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
+  
+
 
 @login_required
 def topic(request, topic_id):
@@ -29,6 +31,8 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, "entries": entries}
     return render(request, 'learning_logs/topic.html', context)
+    
+
 
 @login_required
 def new_topic(request):
@@ -89,3 +93,4 @@ def edit_entry(request, entry_id):
     
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+    #return HttpResponseRedirect(reverse('learning_logs:topic',args=[topic.id]))
