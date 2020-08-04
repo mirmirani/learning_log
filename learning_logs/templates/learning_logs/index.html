@@ -4,7 +4,7 @@
 
     {% block header %}
 
-    <div class="w3-panel w3-flat-belize-hole" style="text-align: center; width: 80%; height: 200px; margin: 0 auto;">
+    <div class="header w3-panel w3-flat-belize-hole" style="text-align: center; width: 80%; height: 200px; margin: 0 auto;">
         <h1>
             Learning Log 
         </h1>
@@ -20,11 +20,23 @@
 
     {% block content %}
 
-<div class="w3-panel w3-flat-belize-hole" style="text-align: center; width: 80%; height: 300px; margin: 0 auto;>
+<div class="appdesc w3-panel w3-flat-belize-hole" style="text-align: left; width: 80%; height: 300px; margin: 0 auto;">
        
-    <p style="margin-left: 2%;"> Learning Log helps you keep track of your learning, for any topic you're learning about. </p>
+    <p> Learning Log helps you keep track of your learning. 
+    <br>
+    Here, you can write a log for any topic or subject you're learning about. </p>
 
+    <p> To begin please register an account, then click topics to start your first log </p>
 
+<style> 
+p {
+margin-left: 10%;
+}
+
+.header {
+    margin-top: 5%;
+}
+</style>
 </div>    
 
     {% endblock content %}

@@ -3,8 +3,8 @@
     {% extends "learning_logs/base.html" %}
     
     {% block content %}
-    <div class="w3-amber w3-round-large">
-        <p>Topics</p>
+    <div class="topics w3-amber w3-round-large">
+        <h5>Your Topics</h5>
 
         <ul>
             {% for topic in topics %}
@@ -18,9 +18,46 @@
             {% endfor %}
         </ul>
 
-        <a href="{% url 'learning_logs:new_topic' %}">Add a new topic:</a>
+        <a class='button w3-btn w3-ripple w3-round-large w3-flat-midnight-blue' href="{% url 'learning_logs:new_topic' %}">Add a new topic</a>
 
     </div>
+
+    <style>
+        .topics {
+            margin: 0 auto;
+            margin-top: 5%;
+            max-width: 75%;
+            padding: 2%;
+            text-align: left;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 2% 0 1% 0;
+            border-bottom: 2px solid white;
+            font-size: larger;
+        }
+        
+        a:link {
+            text-decoration: none;
+         
+        }
+
+        li:hover {
+            background-color: #2C3E50;
+            color: white;
+        }
+
+        h5 {
+            color: white;
+            font-size: 200%;
+        }
+
+        .button {
+            margin-top: 3%;
+        }
+
+    </style>
 
     {% endblock content %}
  

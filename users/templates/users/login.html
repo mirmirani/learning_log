@@ -2,7 +2,7 @@
     {% extends "learning_logs/base.html" %}
     
     {% block content %}
-    <div class="w3-amber w3-round-large">
+    <div class="loginbox w3-amber w3-round-large">
         {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
         {% endif %}
@@ -11,13 +11,24 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-        <button name="submit">Log in</button>
+        <button class='w3-btn w3-ripple w3-round-large w3-flat-midnight-blue' name="submit">Log in</button>
         <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
 
 
         </form>
     </div>
 
+    <style>
+        .loginbox {
+            margin: 0 auto;
+            margin-top: 5%;
+            max-width: 75%;
+            padding: 2%;
+            text-align: center;
+        }
+
+
+    </style>
     
 {% endblock content %}
     
