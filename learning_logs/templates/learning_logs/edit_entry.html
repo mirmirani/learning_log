@@ -3,7 +3,7 @@
     {% extends "learning_logs/base.html" %}
     
     {% block content %}
-    <div class="content w3-amber w3-round-large">
+    <div class="content w3-flat-sun-flower w3-round-large">
         <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
         
         <p>Edit entry:</p>
@@ -11,27 +11,18 @@
         <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">save changes</button>
+            <button class='button w3-btn w3-ripple w3-round-large w3-flat-midnight-blue'  name="submit">Save Changes</button>
         </form>
     </div>
 
     <style>
-        div {
-            text-align: left; margin: 0 auto 0 auto; width: 90%;
-        }
-
-        p {
-            margin-left: 1%;
-        }
-
-        ul {
-            margin-left: 1%;
-        }
-
         .content {
-            padding: 0 1%;
-            font-family: Georgia;
+            text-align: left;
+             margin: 2% auto 0 auto;
+             max-width: 1000px;
+             padding: 3%;
         }
+
     </style>
 
     {% endblock content %}

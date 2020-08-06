@@ -13,24 +13,30 @@
 
   
     {% block content %}
-    <div class="w3-round-large">
+    <div class="content w3-round-large">
+        <div class='overhead1 w3-panel w3-amber w3-center'>
+        <p style="font-size: x-large;">Topic: {{topic}}</p>
+        </div>
         
-        <p>Topic: {{topic}}</p>
+        <div class="overhead2" style="padding: 5%;">
+        <P style="font-size: 150%; margin: 0%;">Entries:</P>
+        <a style='margin-top: 0.5%;' class='button w3-btn w3-ripple w3-round-large w3-flat-sun-flower' href="{% url 'learning_logs:new_entry' topic.id %}">Add a new entry</a>
+        </div>
 
-        <P>Entries:</P>
 
-        <p>
-            <a href="{% url 'learning_logs:new_entry' topic.id %}">add a new entry</a>
-        </p>
-
+        <div class='entry'>
+        
+        <P style="margin: 0% 0 0 2%; text-decoration: underline;">Entries:</P>
         <ul>
             {% for entry in entries %}
             <li>
-                <p> Published {{entry.date_added|date:'D d M Y'}} at {{entry.date_added|time:'H:i'}}</p>
+
                 <p>{{entry.text|linebreaks}}</p>
-                <p>
-                    <a href="{% url  'learning_logs:edit_entry'  entry.id %}">edit entry</a>
+                <p style="font-size: 80%; margin-bottom: 0;"> Published {{entry.date_added|date:'D d M Y'}} at {{entry.date_added|time:'H:i'}}</p>
+                <p style="margin-top: 0; padding-top: 0;">
+                    <a  style='margin-top: 1%; font-size: 80%;' class='button w3-btn w3-ripple w3-round-large w3-flat-sun-flower'href="{% url  'learning_logs:edit_entry'  entry.id %}">edit entry</a>
                 </p>
+                <hr>
             </li>
             {%empty%}
             <li>
@@ -38,25 +44,24 @@
             </li>
             {%endfor%}
         </ul>
+    </div>
 
     </div>
 
     <style>
-        .topics {
-            margin: 0 auto;
-            margin-top: 5%;
-            max-width: 75%;
-            padding: 2%;
-            text-align: left;
+
+        .entry {
+            padding: 0% 2% 0 0;
+            border-bottom: 2px solid white;
+            font-size: larger;
+
         }
 
         li {
-            list-style-type: none;
-            padding: 2% 0 1% 0;
-            border-bottom: 2px solid white;
-            font-size: larger;
+        letter-spacing: normal;
+        list-style: none;
         }
-        
+
         a:link {
             text-decoration: none;
          
@@ -74,6 +79,14 @@
 
         .button {
             margin-top: 3%;
+        }
+
+        .content{
+            max-width: 1000px;
+        }
+
+        .overhead2 {
+            text-align: center;
         }
 
     </style>

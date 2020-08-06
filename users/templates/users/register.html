@@ -3,17 +3,26 @@
     {% extends "learning_logs/base.html" %}
     
     {% block content %}
-    <div class="w3-amber w3-round-large">
+    <div class="content w3-flat-sun-flower w3-round-large">
         <form method='post' action="{% url 'users:register' %}">
             {% csrf_token %}
             {{ form.as_p }}
 
-        <button name="submit">Register</button>
+        <button class='button w3-btn w3-ripple w3-round-large w3-flat-midnight-blue'   name="submit">Register</button>
         <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
 
 
         </form>
     </div>
 
+    <style>
+            .content {
+            text-align: left;
+             margin: 2% auto 0 auto;
+             max-width: 1000px;
+             padding: 3%;
+             color: black;
+    }
+    </style>
     
 {% endblock content %}

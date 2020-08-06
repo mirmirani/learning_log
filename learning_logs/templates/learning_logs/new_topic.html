@@ -2,15 +2,23 @@
     {% extends "learning_logs/base.html" %}
     
     {% block content %}
-    <div class="w3-amber w3-round-large">
-        <p>Add a new topic:</p>
+    <div class="content w3-flat-sun-flower w3-round-large">
+        <p style="font-size: larger;">Add a new topic:</p>
 
         <form action="{% url 'learning_logs:new_topic' %}" method='post'>
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">add topic</button>
+            <button class='button w3-btn w3-ripple w3-round-large w3-flat-midnight-blue'  name="submit">Add topic</button>
         </form>
     </div>
-
+<style>
+    .content {
+        text-align: center;
+             margin: 2% auto 0 auto;
+             max-width: 1000px;
+             padding: 3%;
+             color: black;
+    }
+</style>
     {% endblock content %}
  
