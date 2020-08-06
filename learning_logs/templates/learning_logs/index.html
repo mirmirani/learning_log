@@ -20,24 +20,39 @@
 
     {% block content %}
 
-<div class="appdesc w3-panel w3-flat-belize-hole" style="text-align: left; width: 80%; height: 300px; margin: 0 auto;">
+<div class="content w3-panel w3-flat-belize-hole" style="text-align: left; width: 80%;">
        
-    <p> Learning Log helps you keep track of your learning. 
-    <br>
-    Here, you can write a log for any topic or subject you're learning about. </p>
 
-    <p> To begin please register an account, then click topics to start your first log </p>
+    <h5>
+        To begin, <a href="{% url 'users:register' %}">Register an account</a> to make
+        your own Learning Log, and list the topics you're learning about.
+        </h5>
+    
+        <h5>
+            Whenever you learn something new about a topic, make an entry
+            summarizing what you've learned.
+            </h5>
+
+</div>    
 
 <style> 
-p {
-margin-left: 10%;
-}
+    p {
+    margin-left: 10%;
+    }
 
-.header {
-    margin-top: 5%;
-}
+    h5 {
+        margin-bottom: 0;
+    }
+    .content {
+        height: 100%;
+        padding: 2% 5% 10% 5%;
+        margin: 0 auto;
+    }
+    
+    .header {
+        margin-top: 5%;
+    }
 </style>
-</div>    
 
     {% endblock content %}
  
